@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estudo.couse.entities.Order;
-import com.estudo.couse.entities.User;
 import com.estudo.couse.services.OrderService;
 
 @RestController
