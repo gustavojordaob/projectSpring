@@ -48,12 +48,17 @@ public class TesteConfig implements CommandLineRunner {
 		
 		Product p1 = new Product(null,"teste ", "teste description ", 10.00,"img teste");
 		Product p2 = new Product(null,"teste 2", "teste description 2", 12.00,"img teste2");
-
+		
+	
 		userRepository.saveAll(Arrays.asList(u1,u2));
 		productRepository.saveAll(Arrays.asList(p1,p2));
 		categoryRepository.saveAll(Arrays.asList(c1,c2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
-
+		
+		p1.getCategories().add(c2);
+		p2.getCategories().add(c1);
+		
+		productRepository.saveAll(Arrays.asList(p1,p2));
 		
 	}
 }
