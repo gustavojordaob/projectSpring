@@ -13,13 +13,13 @@ import com.estudo.couse.entities.Order;
 import com.estudo.couse.entities.OrderItem;
 import com.estudo.couse.entities.Payment;
 import com.estudo.couse.entities.Product;
-import com.estudo.couse.entities.User;
+import com.estudo.couse.entities.Cliente;
 import com.estudo.couse.entities.enums.OrderStatus;
 import com.estudo.couse.repositories.CategoryRepository;
 import com.estudo.couse.repositories.OrderItemRepository;
 import com.estudo.couse.repositories.OrderRepository;
 import com.estudo.couse.repositories.ProductRepository;
-import com.estudo.couse.repositories.UserRepository;
+import com.estudo.couse.repositories.ClienteRepository;
 
 @Configuration
 @Profile("test")
@@ -29,7 +29,7 @@ public class TesteConfig implements CommandLineRunner {
 	private OrderItemRepository orderItemRepository;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private ClienteRepository userRepository;
 	
 	@Autowired
 	private OrderRepository orderRepository;
@@ -42,8 +42,8 @@ public class TesteConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
-		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
+		Cliente u1 = new Cliente(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
+		Cliente u2 = new Cliente(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 		
 		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.DELIVERED ,u1);
 		Order o2 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.WAITTING_PAYMENT ,u2);

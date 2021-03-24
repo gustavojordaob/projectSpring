@@ -9,27 +9,27 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.estudo.couse.entities.User;
-import com.estudo.couse.repositories.UserRepository;
+import com.estudo.couse.entities.Cliente;
+import com.estudo.couse.repositories.ClienteRepository;
 import com.estudo.couse.services.exceptions.DatabaseException;
 import com.estudo.couse.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class UserService {
+public class ClienteService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private ClienteRepository userRepository;
 	
-	public List<User> findAll(){
+	public List<Cliente> findAll(){
 		return userRepository.findAll();
 	}
 	
-	public User findById(Long id) {
-		Optional<User> obj = userRepository.findById(id);
+	public Cliente findById(Long id) {
+		Optional<Cliente> obj = userRepository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
-	public User Insert(User obj) {
+	public Cliente Insert(Cliente obj) {
 		return userRepository.save(obj);
 	}
 	
@@ -43,13 +43,13 @@ public class UserService {
 		}
 	}
 	
-	public User update(Long id, User obj) {
-		User entity = userRepository.getOne(id);
+	public Cliente update(Long id, Cliente obj) {
+		Cliente entity = userRepository.getOne(id);
 		updateData(entity,obj);
 		return userRepository.save(entity);
 	}
 
-	private void updateData(User entity, User obj) {
+	private void updateData(Cliente entity, Cliente obj) {
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());
 		entity.setPhone(obj.getPhone());		
